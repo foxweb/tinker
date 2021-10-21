@@ -8,54 +8,61 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     @State var positions = [Position]()
-    
-    let formatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        return formatter
-    }()
-    
+
     var body: some View {
         List(positions) { position in
             VStack(alignment: .leading) {
-                            HStack{
-                                Text("\(position.name)")
-                                    .font(.headline)
-                                    .fontWeight(.semibold)
-                                    .lineLimit(1)
-                            }
-                                
-                            HStack {
-                                let balance = String(format: "%g шт.", position.balance)
-                                let expectedYield = String(format: "%+g \(position.expectedYield.currencySymbol!)", position.expectedYield.value)
+                HStack{
+                    Text(position.name)
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .lineLimit(1)
+                        .padding(.bottom, 1)
 
-                                Text("\(expectedYield)")
-                                    .font(.footnote)
-                                    .foregroundColor(position.expectedYield.value > 0 ? .green : .red)
+                    Spacer()
 
-                                Spacer()
+                    Text(position.amountFormatted)
+                        .font(.headline)
+                        .fontWeight(.regular)
+                }
 
-                                Text("\(balance)")
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                            }
+                HStack {
+                    let balance = String(format: "%g шт.", position.balance)
 
-                        }
+                    Text(balance)
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+
+                    Text("•")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+
+                    Text(position.sellPriceFormatted)
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+
+                    Spacer()
+
+                    Text(position.expectedYieldFormatted)
+                        .font(.footnote)
+                        .foregroundColor(position.expectedYield.value > 0 ? .green : .red)
+                }
+            }
         }
-            .onAppear() {
-                TinkoffClient().getPortfolio { result in
-                    DispatchQueue.main.async {
-                        switch result {
-                        case .success(let positions):
-                            self.positions = positions
-                        case .failure:
-                            self.positions = []
-                        }
+        .onAppear() {
+            TinkoffClient().getPortfolio { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let positions):
+                        self.positions = positions
+                    case .failure:
+                        self.positions = []
                     }
                 }
-            }.navigationTitle("Portfolio")
+            }
+        }.navigationTitle("Portfolio")
     };
 }
 
