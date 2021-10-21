@@ -1,0 +1,14 @@
+//
+//  Config.xcconfig
+//  Tinker
+//
+//  Created by Aleksey Kurepin on 21.10.2021.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+TINKOFF_OPENAPI_URL = api-invest.tinkoff.ru/openapi
+
+// See https://tinkoffcreditsystems.github.io/invest-openapi/auth/
+TINKOFF_OPENAPI_TOKEN = paste_your_token_here
