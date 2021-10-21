@@ -11,11 +11,6 @@ enum Currency: String, Decodable {
     case RUB, USD, EUR, GBP, HKD, CHF, JPY, CNY, TRY
 }
 
-func getSymbol(code: String) -> String? {
-    let result = Locale.availableIdentifiers.map { Locale(identifier: $0) }.first { $0.currencyCode == code }
-    return result?.currencySymbol
-}
-
 struct Position: Decodable, Identifiable {
     enum InstrumentType: String, Decodable {
         case Stock, Currency, Bond, Etf
@@ -28,27 +23,21 @@ struct Position: Decodable, Identifiable {
     let instrumentType: InstrumentType
     let balance: Double
     let lots: Int
-    let expectedYield: ExpectedYield
-    let averagePositionPrice: AveragePositionPrice
-    let averagePositionPriceNoNkd: AveragePositionPriceNoNkd?
+    let expectedYield: MoneyAmount
+    let averagePositionPrice: MoneyAmount
+    let averagePositionPriceNoNkd: MoneyAmount?
 }
 
-struct ExpectedYield: Decodable {
+struct MoneyAmount: Decodable {
     var currencySymbol: String? {
-        let result = Locale.availableIdentifiers.map { Locale(identifier: $0) }.first { $0.currencyCode == currency.rawValue }
+        let result = Locale
+            .availableIdentifiers
+            .map { Locale(identifier: $0) }
+            .first { $0.currencyCode == currency.rawValue }
+
         return result?.currencySymbol
     }
 
-    let currency: Currency
-    let value: Double
-}
-
-struct AveragePositionPrice: Decodable {
-    let currency: Currency
-    let value: Double
-}
-
-struct AveragePositionPriceNoNkd: Decodable {
     let currency: Currency
     let value: Double
 }
