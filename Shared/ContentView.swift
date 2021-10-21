@@ -22,23 +22,26 @@ struct ContentView: View {
             VStack(alignment: .leading) {
                             HStack{
                                 Text("\(position.name)")
-                                    .font(.title)
+                                    .font(.headline)
                                     .fontWeight(.semibold)
-                                
-                                Spacer()
-                                
-                                let balance = String(format: "%g шт.", position.balance)
-                                let expectedYield = String(format: "%+g \(position.expectedYield.currency)", position.expectedYield.value)
-                                
-                                VStack(alignment: .trailing, spacing: 10) {
-                                    Text("\(balance)")
-                                        .font(.body)
-                                    
-                                    Text("\(expectedYield)")
-                                        .font(.body)
-                                }
+                                    .lineLimit(1)
                             }
-                            Spacer()
+                                
+                            HStack {
+                                let balance = String(format: "%g шт.", position.balance)
+                                let expectedYield = String(format: "%+g \(position.expectedYield.currencySymbol!)", position.expectedYield.value)
+
+                                Text("\(expectedYield)")
+                                    .font(.footnote)
+                                    .foregroundColor(position.expectedYield.value > 0 ? .green : .red)
+
+                                Spacer()
+
+                                Text("\(balance)")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                            }
+
                         }
         }
             .onAppear() {
