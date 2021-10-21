@@ -4,8 +4,9 @@
 
 # Начало работы
 
-Перед первой сборкой переименуйте файл `Config.xcconfig.example` в `Config.xcconfig` и добавьте туда свой OpenAPI-токен.
-Инструкция, как получить токен: https://tinkoffcreditsystems.github.io/invest-openapi/auth/
+1. Переименуйте файл `Config.xcconfig.example` в `Config.xcconfig`.
+2. Получите свой OpenAPI-токен, используя инструкцию: https://tinkoffcreditsystems.github.io/invest-openapi/auth/
+3. Добавьте токен в `Config.xcconfig`.
 
 # Уведомление о защите персональных данных
 
