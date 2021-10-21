@@ -67,6 +67,7 @@
 		D143D64027216D2C00953751 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		D143D6412721734800953751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D143D642272175C000953751 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		D1BD708227217DBC00A31A01 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +105,7 @@
 		D1409BE82720AB88002B61C5 = {
 			isa = PBXGroup;
 			children = (
+				D1BD708227217DBC00A31A01 /* README.md */,
 				D143D6412721734800953751 /* Info.plist */,
 				D143D64027216D2C00953751 /* Config.xcconfig */,
 				D1409C392720F12F002B61C5 /* Tinker (iOS).entitlements */,
