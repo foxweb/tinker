@@ -23,7 +23,7 @@ struct ContentView: View {
 
                     Spacer()
 
-                    Text(position.amountFormatted)
+                    Text(position.positionCostFormatted)
                         .font(.headline)
                         .fontWeight(.regular)
                 }
@@ -39,7 +39,7 @@ struct ContentView: View {
                         .font(.footnote)
                         .foregroundColor(.secondary)
 
-                    Text(position.sellPriceFormatted)
+                    Text(position.currentPriceFormatted)
                         .font(.footnote)
                         .foregroundColor(.secondary)
 

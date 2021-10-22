@@ -27,31 +27,33 @@ struct Position: Decodable, Identifiable {
     let averagePositionPrice: MoneyAmount
     let averagePositionPriceNoNkd: MoneyAmount?
 
-    // calculations and decorations
+    // вычисления и форматирование
 
     // общая сумма по позиции
-    var amount: Double {
+    var positionCost: Double {
         return (averagePositionPrice.value * balance) + expectedYield.value
     }
 
     // вычисление текущей цены позиции
-    var sellPrice: Double {
+    var currentPrice: Double {
         return ((balance * averagePositionPrice.value) + expectedYield.value) / balance
     }
 
     // форматированная общая сумма
-    var amountFormatted: String {
-        return String(format: "%.2f \(averagePositionPrice.currencySymbol!)", amount)
+    var positionCostFormatted: String {
+        return String(format: "%.2f \(averagePositionPrice.currencySymbol!)", positionCost)
     }
 
     // форматированная текущая цена
-    var sellPriceFormatted: String {
-        return String(format: "%.2f \(averagePositionPrice.currencySymbol!)", sellPrice)
+    var currentPriceFormatted: String {
+        return String(format: "%.2f \(averagePositionPrice.currencySymbol!)", currentPrice)
     }
 
-    // форматированная сумму и процент профита
+    // форматированная сумма и процент профита
     var expectedYieldFormatted: String {
-        let percentValue = ((amount / (amount - expectedYield.value)) - 1) * 100
+        let buyCost = balance * averagePositionPrice.value
+        let percentValue = (expectedYield.value / buyCost) * 100
+
         return String(format: "%+g \(expectedYield.currencySymbol!) (%.2f %%)", expectedYield.value, abs(percentValue))
     }
 }
