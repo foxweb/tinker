@@ -27,6 +27,12 @@
 		D1409C372720B880002B61C5 /* Candle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1409C352720B880002B61C5 /* Candle.swift */; };
 		D143D643272175C000953751 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D143D642272175C000953751 /* Configuration.swift */; };
 		D143D644272175C000953751 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D143D642272175C000953751 /* Configuration.swift */; };
+		D1DF7F7F2723899200C49291 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DF7F7E2723899200C49291 /* MainView.swift */; };
+		D1DF7F802723899200C49291 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DF7F7E2723899200C49291 /* MainView.swift */; };
+		D1DF7F8227238B2400C49291 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DF7F8127238B2400C49291 /* SettingsView.swift */; };
+		D1DF7F8327238B2400C49291 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DF7F8127238B2400C49291 /* SettingsView.swift */; };
+		D1DF7F852724041B00C49291 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DF7F842724041B00C49291 /* StatisticsView.swift */; };
+		D1DF7F862724041B00C49291 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DF7F842724041B00C49291 /* StatisticsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +74,9 @@
 		D143D6412721734800953751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D143D642272175C000953751 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		D1BD708227217DBC00A31A01 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D1DF7F7E2723899200C49291 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D1DF7F8127238B2400C49291 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D1DF7F842724041B00C49291 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +132,9 @@
 				D1409C2E2720B82F002B61C5 /* Models */,
 				D1409BEE2720AB88002B61C5 /* TinkerApp.swift */,
 				D1409BEF2720AB88002B61C5 /* ContentView.swift */,
+				D1DF7F7E2723899200C49291 /* MainView.swift */,
+				D1DF7F842724041B00C49291 /* StatisticsView.swift */,
+				D1DF7F8127238B2400C49291 /* SettingsView.swift */,
 				D1409C2D2720B825002B61C5 /* Network */,
 				D1409BF02720AB8A002B61C5 /* Assets.xcassets */,
 				D143D642272175C000953751 /* Configuration.swift */,
@@ -344,10 +356,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1409C362720B880002B61C5 /* Candle.swift in Sources */,
+				D1DF7F852724041B00C49291 /* StatisticsView.swift in Sources */,
+				D1DF7F7F2723899200C49291 /* MainView.swift in Sources */,
 				D1409C182720AB8B002B61C5 /* ContentView.swift in Sources */,
 				D143D643272175C000953751 /* Configuration.swift in Sources */,
 				D1409C332720B877002B61C5 /* Currency.swift in Sources */,
 				D1409C162720AB8B002B61C5 /* TinkerApp.swift in Sources */,
+				D1DF7F8227238B2400C49291 /* SettingsView.swift in Sources */,
 				D1409C302720B86A002B61C5 /* Position.swift in Sources */,
 				D1409C2B2720B34B002B61C5 /* TinkoffClient.swift in Sources */,
 			);
@@ -358,10 +373,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1409C372720B880002B61C5 /* Candle.swift in Sources */,
+				D1DF7F862724041B00C49291 /* StatisticsView.swift in Sources */,
+				D1DF7F802723899200C49291 /* MainView.swift in Sources */,
 				D1409C192720AB8B002B61C5 /* ContentView.swift in Sources */,
 				D143D644272175C000953751 /* Configuration.swift in Sources */,
 				D1409C342720B877002B61C5 /* Currency.swift in Sources */,
 				D1409C172720AB8B002B61C5 /* TinkerApp.swift in Sources */,
+				D1DF7F8327238B2400C49291 /* SettingsView.swift in Sources */,
 				D1409C312720B86A002B61C5 /* Position.swift in Sources */,
 				D1409C2C2720B34B002B61C5 /* TinkoffClient.swift in Sources */,
 			);
