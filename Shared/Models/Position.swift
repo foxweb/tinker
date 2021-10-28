@@ -8,12 +8,35 @@
 import Foundation
 
 enum Currency: String, Decodable {
-    case RUB, USD, EUR, GBP, HKD, CHF, JPY, CNY, TRY
+    case rub = "RUB"
+    case usd = "USD"
+    case eur = "EUR"
+    case gbp = "GBP"
+    case hkd = "HKD"
+    case chf = "CHF"
+    case jpy = "JPY"
+    case cny = "CNY"
+    case `try` = "TRY"
 }
 
 struct Position: Decodable, Identifiable {
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case figi
+        case ticker
+        case instrumentType
+        case balance
+        case lots
+        case expectedYield
+        case averagePositionPrice
+        case averagePositionPriceNoNkd
+    }
+
     enum InstrumentType: String, Decodable {
-        case Stock, Currency, Bond, Etf
+        case stock = "Stock"
+        case currency = "Currency"
+        case bond = "Bond"
+        case etf = "Etf"
     }
 
     let id = UUID()
