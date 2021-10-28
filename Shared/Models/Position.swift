@@ -54,7 +54,11 @@ struct Position: Decodable, Identifiable {
         let buyCost = balance * averagePositionPrice.value
         let percentValue = (expectedYield.value / buyCost) * 100
 
-        return String(format: "%+g \(expectedYield.currencySymbol) (%.2f %%)", expectedYield.value, abs(percentValue))
+        return String(
+            format: "%+g \(expectedYield.currencySymbol) (%.2f %%)",
+            expectedYield.value,
+            abs(percentValue)
+        )
     }
 }
 
@@ -64,7 +68,7 @@ struct MoneyAmount: Decodable {
             .availableIdentifiers
             .map { Locale(identifier: $0) }
             .first { $0.currencyCode == currency.rawValue }
-        
+
         return result?.currencySymbol == "RUB" ? "₽" : String(result?.currencySymbol ?? "?")
     }
 

@@ -13,7 +13,7 @@ enum Configuration {
     }
 
     static func value<T>(for key: String) throws -> T where T: LosslessStringConvertible {
-        guard let object = Bundle.main.object(forInfoDictionaryKey:key) else {
+        guard let object = Bundle.main.object(forInfoDictionaryKey: key) else {
             throw Error.missingKey
         }
 
@@ -33,9 +33,8 @@ enum API {
     static var baseURL: URL {
         return try! URL(string: "https://" + Configuration.value(for: "TINKOFF_OPENAPI_URL"))!
     }
-    
+
     static var token: String {
         return try! Configuration.value(for: "TINKOFF_OPENAPI_TOKEN")
     }
 }
-

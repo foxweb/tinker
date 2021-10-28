@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         List(positions) { position in
             VStack(alignment: .leading) {
-                HStack{
+                HStack {
                     Text(position.name)
                         .font(.headline)
                         .fontWeight(.semibold)
@@ -51,7 +51,7 @@ struct ContentView: View {
                 }
             }
         }
-        .onAppear() {
+        .onAppear {
             TinkoffClient().getPortfolio { result in
                 DispatchQueue.main.async {
                     switch result {

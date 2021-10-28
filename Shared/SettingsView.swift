@@ -11,14 +11,14 @@ struct SettingsView: View {
     @ObservedObject var tinkoffClient = TinkoffClient()
 
     var body: some View {
-            VStack {
-                Form {
-                    Section(header: Text("API-ключ")) {
-                        TextField("Введите API-ключ", text: $tinkoffClient.apiKey)
-                    }
+        VStack {
+            Form {
+                Section(header: Text("API-ключ")) {
+                    TextField("Введите API-ключ", text: $tinkoffClient.apiKey)
                 }
             }
-            .navigationTitle("Настройки")
+        }
+        .navigationTitle("Настройки")
     }
 }
 

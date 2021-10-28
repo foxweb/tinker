@@ -32,27 +32,34 @@ class TinkoffClient: ObservableObject {
         urlRequest.httpMethod = "GET"
         urlRequest.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
 
-        let dataTask = session.dataTask(with: urlRequest, completionHandler: {data, response, error in
+        let dataTask = session.dataTask(
+            with: urlRequest,
+            completionHandler: { data, response, error in
 
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    onResult(.failure(ApiError.noData))
+                guard let data = data else {
+                    DispatchQueue.main.async {
+                        onResult(.failure(ApiError.noData))
+                    }
+                    return
                 }
-                return
-            }
 
-            do {
-                let portfolioResponse = try JSONDecoder().decode(PortfolioResponse.self, from: data)
-                DispatchQueue.main.async {
-                    onResult(.success(portfolioResponse.payload.positions))
+                do {
+                    let portfolioResponse = try JSONDecoder().decode(
+                        PortfolioResponse.self,
+                        from: data
+                    )
+                    DispatchQueue.main.async {
+                        onResult(.success(portfolioResponse.payload.positions))
+                    }
                 }
-            } catch(let error) {
-                print(error)
-                DispatchQueue.main.async {
-                    onResult(.failure(error))
+                catch (let error) {
+                    print(error)
+                    DispatchQueue.main.async {
+                        onResult(.failure(error))
+                    }
                 }
             }
-        })
+        )
 
         dataTask.resume()
     }
