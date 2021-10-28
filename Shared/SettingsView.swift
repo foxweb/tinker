@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @ObservedObject var tinkoffClient = TinkoffClient()
+
     var body: some View {
-        Text("Здесь будут настройки")
+            VStack {
+                Form {
+                    Section(header: Text("API-ключ")) {
+                        TextField("Введите API-ключ", text: $tinkoffClient.apiKey)
+                    }
+                }
+            }
+            .navigationTitle("Настройки")
     }
 }
 

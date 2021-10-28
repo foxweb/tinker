@@ -16,7 +16,7 @@ struct Position: Decodable, Identifiable {
         case Stock, Currency, Bond, Etf
     }
 
-    private(set) var id = UUID()
+    let id = UUID()
     let name: String
     let figi: String
     let ticker: String

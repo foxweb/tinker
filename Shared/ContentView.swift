@@ -62,8 +62,8 @@ struct ContentView: View {
                     }
                 }
             }
-        }.navigationTitle("Portfolio")
-    };
+        }.navigationTitle("Портфель")
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

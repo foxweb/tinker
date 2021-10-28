@@ -10,6 +10,8 @@ import SwiftUI
 struct StatisticsView: View {
     var body: some View {
         Text("Здесь будет статистика")
+            .onAppear()
+            .navigationTitle("Статистика")
     }
 }
 

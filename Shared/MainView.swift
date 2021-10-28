@@ -10,20 +10,23 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
-            ContentView()
-                .tabItem {
-                    Label("Портфель", systemImage: "briefcase.fill")
-                }
+            NavigationView {
+                ContentView()
+            }.tabItem {
+                Label("Портфель", systemImage: "briefcase.fill")
+            }.tag(0)
 
-            StatisticsView()
-                .tabItem {
-                    Label("Статистика", systemImage: "chart.bar.xaxis")
-                }
+            NavigationView {
+                StatisticsView()
+            }.tabItem {
+                Label("Статистика", systemImage: "chart.bar.xaxis")
+            }.tag(0)
 
-            SettingsView()
-                .tabItem {
-                    Label("Настройки", systemImage: "gear")
-                }
+            NavigationView {
+                SettingsView()
+            }.tabItem {
+                Label("Настройки", systemImage: "gear")
+            }.tag(0)
         }
     }
 }
