@@ -24,6 +24,7 @@ struct Position: Decodable, Identifiable {
         case name
         case figi
         case ticker
+        case isin
         case instrumentType
         case balance
         case lots
@@ -43,6 +44,7 @@ struct Position: Decodable, Identifiable {
     let name: String
     let figi: String
     let ticker: String
+    let isin: String?
     let instrumentType: InstrumentType
     let balance: Double
     let lots: Int
@@ -82,6 +84,17 @@ struct Position: Decodable, Identifiable {
             expectedYield.value,
             abs(percentValue)
         )
+    }
+
+    var imageURL: URL? {
+        if isin != nil {
+            return URL(
+                string: "https://invest-brands.cdn-tinkoff.ru/\(isin!)x160.png"
+            )
+        }
+        else {
+            return nil
+        }
     }
 }
 

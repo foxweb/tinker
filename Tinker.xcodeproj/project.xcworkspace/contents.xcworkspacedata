@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/foxweb/work/foxweb/Tinker/Tinker.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

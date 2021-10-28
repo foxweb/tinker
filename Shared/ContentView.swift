@@ -5,6 +5,7 @@
 //  Created by Aleksey Kurepin on 20.10.2021.
 //
 
+import SDWebImageSwiftUI
 import SwiftUI
 
 struct ContentView: View {
@@ -13,44 +14,56 @@ struct ContentView: View {
 
     var body: some View {
         List(positions) { position in
-            VStack(alignment: .leading) {
+            HStack {
                 HStack {
-                    Text(position.name)
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .lineLimit(1)
-                        .padding(.bottom, 1)
-
-                    Spacer()
-
-                    Text(position.positionCostFormatted)
-                        .font(.headline)
-                        .fontWeight(.regular)
+                    WebImage(url: position.imageURL)
+                        .resizable()
+                        .frame(width: 40, height: 40, alignment: .leading)
+                        .clipShape(Circle())
                 }
 
-                HStack {
-                    let balance = String(format: "%g шт.", position.balance)
+                Spacer()
 
-                    Text(balance)
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
+                VStack {
+                    HStack {
+                        Text(position.name)
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .lineLimit(1)
+                            .padding(.bottom, 1)
 
-                    Text("•")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
+                        Spacer()
 
-                    Text(position.currentPriceFormatted)
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
+                        Text(position.positionCostFormatted)
+                            .font(.headline)
+                            .fontWeight(.regular)
+                    }
 
-                    Spacer()
+                    HStack {
+                        let balance = String(format: "%g шт.", position.balance)
 
-                    Text(position.expectedYieldFormatted)
-                        .font(.footnote)
-                        .foregroundColor(position.expectedYield.value > 0 ? .green : .red)
+                        Text(balance)
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+
+                        Text("•")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+
+                        Text(position.currentPriceFormatted)
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+
+                        Spacer()
+
+                        Text(position.expectedYieldFormatted)
+                            .font(.footnote)
+                            .foregroundColor(position.expectedYield.value > 0 ? .green : .red)
+                    }
                 }
             }
         }
+        .listStyle(PlainListStyle())
         .onAppear {
             TinkoffClient().getPortfolio { result in
                 DispatchQueue.main.async {
@@ -63,7 +76,8 @@ struct ContentView: View {
                     }
                 }
             }
-        }.navigationTitle("Портфель")
+        }
+        .navigationTitle("Портфель")
     }
 }
 
