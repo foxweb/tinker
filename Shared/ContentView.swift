@@ -56,7 +56,8 @@ struct ContentView: View {
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let positions):
-                        self.positions = positions
+                        let sortedPositions = positions.sorted { $0.name < $1.name }
+                        self.positions = sortedPositions
                     case .failure:
                         self.positions = []
                     }
