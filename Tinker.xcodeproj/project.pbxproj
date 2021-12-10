@@ -27,7 +27,6 @@
 		D1409C372720B880002B61C5 /* Candle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1409C352720B880002B61C5 /* Candle.swift */; };
 		D143D643272175C000953751 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D143D642272175C000953751 /* Configuration.swift */; };
 		D143D644272175C000953751 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D143D642272175C000953751 /* Configuration.swift */; };
-		D1DEB959272AFFAE0064B2AC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D1DEB958272AFFAE0064B2AC /* SDWebImageSwiftUI */; };
 		D1DF7F7F2723899200C49291 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DF7F7E2723899200C49291 /* MainView.swift */; };
 		D1DF7F802723899200C49291 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DF7F7E2723899200C49291 /* MainView.swift */; };
 		D1DF7F8227238B2400C49291 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DF7F8127238B2400C49291 /* SettingsView.swift */; };
@@ -85,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1DEB959272AFFAE0064B2AC /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,9 +111,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D13C3EF5274C5FCD0064F6E7 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		D1409BE82720AB88002B61C5 = {
 			isa = PBXGroup;
 			children = (
+				D13C3EF5274C5FCD0064F6E7 /* Packages */,
 				D1BD708227217DBC00A31A01 /* README.md */,
 				D143D6412721734800953751 /* Info.plist */,
 				D143D64027216D2C00953751 /* Config.xcconfig */,
@@ -218,7 +224,6 @@
 			);
 			name = "Tinker (iOS)";
 			packageProductDependencies = (
-				D1DEB958272AFFAE0064B2AC /* SDWebImageSwiftUI */,
 			);
 			productName = "Tinker (iOS)";
 			productReference = D1409BF52720AB8B002B61C5 /* Tinker.app */;
@@ -313,7 +318,6 @@
 			);
 			mainGroup = D1409BE82720AB88002B61C5;
 			packageReferences = (
-				D1DEB957272AFFAE0064B2AC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = D1409BF62720AB8B002B61C5 /* Products */;
 			projectDirPath = "";
@@ -522,6 +526,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -574,6 +579,7 @@
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -596,7 +602,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -630,7 +636,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -662,6 +668,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -693,6 +700,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -858,25 +866,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D1DEB957272AFFAE0064B2AC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D1DEB958272AFFAE0064B2AC /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D1DEB957272AFFAE0064B2AC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D1409BE92720AB88002B61C5 /* Project object */;
 }

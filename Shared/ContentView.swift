@@ -5,7 +5,6 @@
 //  Created by Aleksey Kurepin on 20.10.2021.
 //
 
-import SDWebImageSwiftUI
 import SwiftUI
 
 struct ContentView: View {
@@ -16,10 +15,13 @@ struct ContentView: View {
         List(positions) { position in
             HStack {
                 HStack {
-                    WebImage(url: position.imageURL)
-                        .resizable()
-                        .frame(width: 40, height: 40, alignment: .leading)
-                        .clipShape(Circle())
+                    AsyncImage(url: position.imageURL) { image in
+                        image.resizable()
+                    } placeholder: {
+                        Color.gray
+                    }
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
                 }
 
                 Spacer()
@@ -65,6 +67,19 @@ struct ContentView: View {
         }
         .listStyle(PlainListStyle())
         .onAppear {
+            TinkoffClient().getPortfolio { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let positions):
+                        let sortedPositions = positions.sorted { $0.name < $1.name }
+                        self.positions = sortedPositions
+                    case .failure:
+                        self.positions = []
+                    }
+                }
+            }
+        }
+        .refreshable {
             TinkoffClient().getPortfolio { result in
                 DispatchQueue.main.async {
                     switch result {
